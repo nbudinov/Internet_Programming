@@ -22,6 +22,7 @@ public class EchoClient {
 		final BufferedReader in = new BufferedReader(inputReader);
 		
 		final PrintWriter writer = new PrintWriter(OS);
+	
 		writer.println(date);
 		writer.flush();
 		
@@ -34,7 +35,7 @@ public class EchoClient {
 	
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println(" Enter a date Year/Month/Days ");
+		System.out.println(" Enter a date >> Year/Month/Day ");
 		
 		final InputStream input = System.in;
 		final InputStreamReader InputReader = new InputStreamReader(input);

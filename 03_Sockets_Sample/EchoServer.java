@@ -14,7 +14,7 @@ import java.util.Date;
 public class EchoServer {
 
 	public static final int SERVER_PORT = 44012;
-
+	
 	public static void main(String[] args) throws IOException, ParseException {
 		run();
 	}
@@ -22,14 +22,60 @@ public class EchoServer {
 	public static void run() throws IOException, ParseException
 	{
 		ServerSocket SS = new ServerSocket( SERVER_PORT );
+		//while(true) {
+	
+			Socket clientSocket = SS.accept();
 		
-		Socket clientSocket = SS.accept();
-		
-		handleClient(clientSocket);
-		
+			new HandleClient(clientSocket).start();
+		//}
+			
 		SS.close();
 	}
 	
+	
+	private static class HandleClient extends Thread
+	{
+		private final Socket clientSocket;
+		
+		public HandleClient( Socket clientSocket )
+		{
+			this.clientSocket = clientSocket;
+		}
+		
+		public void run()
+		{
+			try {
+				handleClient(clientSocket);
+			} catch (IOException | ParseException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		private void handleClient(final Socket clientSocket) throws IOException, ParseException
+		{
+			final InputStream  inputStream = clientSocket.getInputStream();
+			final OutputStream outputStream = clientSocket.getOutputStream();
+			
+			final InputStreamReader reader = new InputStreamReader(inputStream);	
+			final BufferedReader in = new BufferedReader(reader);
+			
+			final PrintWriter out = new PrintWriter(outputStream);
+			
+			final String line = in.readLine();
+			
+			//System.out.println( line);
+			
+			String resultInHours = convertStringToDate( line );
+			
+			out.println(resultInHours);
+			out.flush();
+			
+			clientSocket.close();	
+		}
+		
+	}
+	
+
 	public static String convertStringToDate( String dateStr ) throws ParseException
 	{
 		Date date = null;
@@ -44,27 +90,6 @@ public class EchoServer {
 		return res;		
 	}
 	
-	public static void handleClient(final Socket clientSocket) throws IOException, ParseException
-	{
-		final InputStream  inputStream = clientSocket.getInputStream();
-		final OutputStream outputStream = clientSocket.getOutputStream();
-		
-		final InputStreamReader reader = new InputStreamReader(inputStream);	
-		final BufferedReader in = new BufferedReader(reader);
-		
-		final PrintWriter out = new PrintWriter(outputStream);
-		
-		final String line = in.readLine();
-		
-		//System.out.println( line);
-		
-		String resultInHours = convertStringToDate( line );
-		
-		out.println(resultInHours);
-		
-		out.flush();
-		
-		clientSocket.close();	
-	}
+	
 	
 }
