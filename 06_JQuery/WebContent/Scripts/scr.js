@@ -15,7 +15,7 @@ $(document).ready(function()
 	
 //task 4
 	
-	$("#menu-top-level-menu ").append('<li id="newbutID"> <a> New	Button </a> </li> ')
+	$("#menu-top-level-menu ").append('<li id="newbutID"> <a> New Button </a> </li> ')
 
 // task 5
 	
@@ -29,7 +29,10 @@ $(document).ready(function()
 	
 	$("#dynamiccontent").append('<button id="addbutton">Submit</button>');
 
+//task 8
 	
+	$("#dynamiccontent").append('<ul id= "posts"></ul>');
+
 	
 });
 
