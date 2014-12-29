@@ -13,6 +13,10 @@ $(document).ready(function()
 	
 	console.log($("#col1 p").text());
 	
+//task 4
+	
+	$("#menu-top-level-menu ").append('<li id="newbutID"> <a> New	Button </a> </li> ')
+
 	
 });
 
