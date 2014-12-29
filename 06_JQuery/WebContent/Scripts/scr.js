@@ -17,6 +17,10 @@ $(document).ready(function()
 	
 	$("#menu-top-level-menu ").append('<li id="newbutID"> <a> New	Button </a> </li> ')
 
+// task 5
+	
+	$("div#footer").prepend('<div id="dynamiccontent"></div>');
+
 	
 });
 
