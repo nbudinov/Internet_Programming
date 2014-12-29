@@ -5,10 +5,14 @@ $(document).ready(function()
 	
 	var json = ('http://jsonplaceholder.typicode.com');
 	
-//task 2
+//tast 2
 	
 	console.log($("#footer a:first").attr("title"));
-		
+	
+//task 3
+	
+	console.log($("#col1 p").text());
+	
 	
 });
 
