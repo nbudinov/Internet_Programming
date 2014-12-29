@@ -33,6 +33,13 @@ $(document).ready(function()
 	
 	$("#dynamiccontent").append('<ul id= "posts"></ul>');
 
+//task 9
+	
+	$("#newbutID a:first").click(function()
+	{
+		alert("Hello World");		
+	});
+
 	
 });
 
