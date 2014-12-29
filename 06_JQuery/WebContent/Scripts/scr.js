@@ -25,6 +25,10 @@ $(document).ready(function()
 		
 	$("#dynamiccontent").append('<input id= "textinput"> </input>');
 
+//task 7
+	
+	$("#dynamiccontent").append('<button id="addbutton">Submit</button>');
+
 	
 	
 });
