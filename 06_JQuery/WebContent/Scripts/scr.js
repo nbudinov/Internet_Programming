@@ -63,6 +63,17 @@ $(document).ready(function()
 	}	
 	
 	
+//task 12
+
+	$('#addbutton').click(function()
+	{
+		if($('input#textinput').val() === '') 
+			alert("You must enter text");
+	});
+
+	
+
+	
 	
 });
 
