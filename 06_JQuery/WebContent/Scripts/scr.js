@@ -90,6 +90,28 @@ $(document).ready(function()
 		}
 	});
 
+	
+//task 14
+
+	$('#addbutton').click(function()
+	{
+		if($('input#textinput').val() === '') 
+			alert("You must enter text");
+		else
+		{
+			$.post(json+"/posts", { 
+				userId: 101,
+				body: $('#textinput').val()						
+			},
+			function(par)
+			{
+				$.get(json+"/posts"+par.id, function(data)
+				{
+					$("#posts").append("<li>" + par.body + "</li>");
+				});		
+			})		
+		}
+	});
 
 	
 	
