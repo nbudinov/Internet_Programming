@@ -49,6 +49,20 @@ $(document).ready(function()
 		
 	});
 	
+
+//task 11
+		
+	for(var i = 1; i <= 5; i++)	{
+		$.ajax(json+"/posts/" + i,
+		{
+		method: "GET"
+	}).then(function(data)
+		{
+			$('#posts').append('<li>' + data.title /*data.body ..*/ + '</li>');
+		});
+	}	
+	
+	
 	
 });
 
