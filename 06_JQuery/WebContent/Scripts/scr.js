@@ -40,6 +40,15 @@ $(document).ready(function()
 		alert("Hello World");		
 	});
 
+//task 10
+	
+	$("#newbutID a:first").click(function()
+	{
+		var col = $("#col1").replaceWith();
+		$("#col2").after($(col));
+		
+	});
+	
 	
 });
 
