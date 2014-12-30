@@ -71,6 +71,27 @@ $(document).ready(function()
 			alert("You must enter text");
 	});
 
+//task 13
+	
+	$('#addbutton').click(function()
+	{
+		if($('input#textinput').val() === '') 
+			alert("You must enter text");
+		else
+		{
+		//		$.post(json+"/posts", $('#textinput').val());
+					
+			$.ajax({
+				type: "POST",
+				url: json+"/posts",
+				data: $('#textinput').val(),
+				success: alert("It sent successfuly")
+			});
+		}
+	});
+
+
+	
 	
 
 	
