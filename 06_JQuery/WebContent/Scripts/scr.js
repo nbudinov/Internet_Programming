@@ -185,6 +185,11 @@ $(document).ready(function()
 	
 		
 		
+
+	
+//task 17
+
+	$('#posts').before('<input id="field"> </input>');
 		
 		
 		
