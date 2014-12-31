@@ -182,7 +182,7 @@ $(document).ready(function()
 			})		
 		}
 	});
-	
+
 		
 		
 
@@ -193,7 +193,25 @@ $(document).ready(function()
 		
 		
 		
-		
+	
+//task 18	
+	
+	$('#field').change(function(){
+		var $fieldVal = $('#field').val();
+		if( $fieldVal !== '' )
+		{
+			console.log($fieldVal);
+			$.get(json + '/posts?userId=' + $fieldVal, function(data)
+			{
+				for (var it = 0; it < data.length; it++) 
+				{
+					$('#posts').append('<li>' + data[it].title + '</li>');					
+				}
+			});		
+		}
+	});
+
+	
 	
 
 	
