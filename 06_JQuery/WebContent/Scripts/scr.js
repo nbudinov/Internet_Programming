@@ -92,7 +92,7 @@ $(document).ready(function()
 
 	
 //task 14
-
+/*
 	$('#addbutton').click(function()
 	{
 		if($('input#textinput').val() === '') 
@@ -112,6 +112,38 @@ $(document).ready(function()
 			})		
 		}
 	});
+*/
+	
+//task 15
+
+	$('#addbutton').click(function()
+	{
+		if($('input#textinput').val() === '') 
+			alert("You must enter text");
+		else
+		{
+			$.post(json+"/posts", { 
+				userId: 101,
+				body: $('#textinput').val()						
+			},
+			function(par)
+			{
+				$.get(json+"/posts"+par.id, function(data)
+				{
+					var $ulLi = $("<li>" + par.body + "</li>")
+							
+					var $butt = $('<button> X </button>').click(function(){
+						alert('deleting');
+					});
+							
+					$ulLi.append($butt);
+							
+					$("#posts").append($ulLi);								
+				});		
+			})		
+		}
+	});
+	
 
 	
 	
